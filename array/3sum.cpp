@@ -9,24 +9,23 @@ vector<vector<int>> three_sum(vector<int> &array){
     sort(array.begin(), array.end());
     vector<vector<int>> result;
     int len = array.size();
-
-    for(int i = 0; i < len-2; ++i){
-        if(i > 0 && array[i] == array[i - 1])
+    for(int i = 0;i < len-2;++i){
+        if(i > 0 && array[i] == array[i-1])
             continue;
         int left = i+1;
         int right = len-1;
         while(left < right){
-            int total = array[i] + array[left] + array[right];
+            int total = array[i]+array[left]+array[right];
             if (total < 0){
                 left++;
             }else if(total > 0){
                 right--;
             }else{
-                result.push_back({array[i], array[left], array[right]});
-                while(left < right && array[left] == array[left + 1]){
+                result.push_back({array[i],array[left],array[right]});
+                while(left < right && array[left] == array[left+1]){
                     left++;
                 }
-                while(left < right && array[right] == array[right - 1]){
+                while(left < right && array[right] == array[right-1]){
                     right--;
                 }
                 left++;
